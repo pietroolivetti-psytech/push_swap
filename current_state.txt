@@ -1,0 +1,8 @@
+
+
+DESKTOP-HMV2LP2% make
+cc  -Wall -Wextra -Werror main.c cli_to_stack.c operations.c operations_utils.c split.c  -o push_swap
+DESKTOP-HMV2LP2% ARG="$(shuf -i 1-1000 -n 500 | tr '\n' ' ')"; ./push_swap $ARG | wc -l
+6784
+DESKTOP-HMV2LP2% ARG="$(shuf -i 1-1000 -n 100 | tr '\n' ' ')"; ./push_swap $ARG | wc -l
+1084
