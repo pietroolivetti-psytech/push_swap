@@ -52,6 +52,7 @@ char	**create_array(int ac, char **array_nb);
 //static void	sort_4(x_stack **stack_a, x_stack **stack_b, int tot);
 //static void	sort_3(x_stack **stack_a, int tot);
 //static int	get_min(x_stack **stack, int val);
-
+char *join_all(char *s1, char *s2);
+char	*ft_strdup(char *src);
 
 # endif
