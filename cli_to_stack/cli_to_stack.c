@@ -71,15 +71,66 @@ void	init_a(x_stack **a, char **av)
 	}
 }
 
-char	**create_array(int ac, char **array_nb)
+
+
+/*char	**create_array(int ac, char **array_nb)
 {
 	char	**ar;
+	char	*joined_args;
+	char	*temp;
+	int		i;
 
 	ar = NULL;
 	if (ac == 2)
 		ar = split(array_nb[1], ' ');
-	return (ar);
-	//if (ac > 2) usar o strjoin ate o fim de modo que a string possa ser passada a split
+	if (ac > 2) //usar o strjoin ate o fim de modo que a string possa ser passada a split
+		{
+			i = 3;
+			joined_args = join_all(array_nb[1], array_nb[2]);
+			if (!joined_args)
+				return (NULL);
+			while(i < (ac - 1))
+			{
+				temp = join_all(joined_args, array_nb[i]);
+				if (!temp)
+					return (NULL);
+				free (joined_args);
+				joined_args = temp;
+				i++;
+			}
+			ar = split(joined_args, ' ');
+		}
 	//implementar verificador de erros
+		return (ar);
+}*/
 
+char	**create_array(int ac, char **array_nb)
+{
+	char	**ar;
+	char	*joined_args;
+	char	*temp;
+	int		i;
+
+	ar = NULL;
+	if (ac == 2)
+		return (split(array_nb[1], ' '));
+	else if (ac > 2)
+	{
+		joined_args = ft_strdup(array_nb[1]);
+		if (!joined_args)
+			return (NULL);
+		i = 2;
+		while (i < ac)
+		{
+			temp = join_all(joined_args, array_nb[i]); // une com espaço
+			if (!temp)
+				return (NULL);
+			free(joined_args);
+			joined_args = temp;
+			i++;
+		}
+		ar = split(joined_args, ' ');
+		free(joined_args);
+	}
+	return (ar);
 }

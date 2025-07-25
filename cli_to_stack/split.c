@@ -71,8 +71,6 @@ char	**split(char *s, char d)
 	if (!len_tokens)
 		exit(1);
 	array = malloc(sizeof(char *) * (len_tokens + 2));
-	if (!array)
-		return (NULL);
 	while (len_tokens-- >= 0)
 	{
 		if (i == 0)
