@@ -113,7 +113,9 @@ char	**create_array(int ac, char **array_nb)
 
 	ar = NULL;
 	if (ac == 2)
-		return (split(array_nb[1], ' '));
+		{if (!check_digit(array_nb[1]))
+			return (0);
+		return (split(array_nb[1], ' '));}
 	else if (ac > 2)
 	{
 		joined_args = ft_strdup(array_nb[1]);
@@ -129,6 +131,8 @@ char	**create_array(int ac, char **array_nb)
 			joined_args = temp;
 			i++;
 		}
+		if (!check_digit(joined_args))
+			{free(joined_args); return (0);}
 		ar = split(joined_args, ' ');
 		free(joined_args);
 	}
