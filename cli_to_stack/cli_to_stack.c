@@ -14,9 +14,9 @@
 
 long	ft_atol(char *s)
 {
-	int	i;
-	int	sg;
-	int	r;
+	int		i;
+	int		sg;
+	long	r;
 
 	i = 0;
 	r = 0;
@@ -66,6 +66,10 @@ void	init_a(x_stack **a, char **av)
 	while (av[i])
 	{
 		n = ft_atol(av[i]);
+		if (check_limit(n))
+			ft_putchar("No error in limits");
+		else
+			ft_putchar("Error");
 		append_node(a, (int)n);
 		i++;
 	}
@@ -113,9 +117,11 @@ char	**create_array(int ac, char **array_nb)
 
 	ar = NULL;
 	if (ac == 2)
-		{if (!check_digit(array_nb[1]))
-			return (0);
-		return (split(array_nb[1], ' '));}
+		{
+			if (!check_digit(array_nb[1]))
+				return (0);
+			return (split(array_nb[1], ' '));
+		}
 	else if (ac > 2)
 	{
 		joined_args = ft_strdup(array_nb[1]);
