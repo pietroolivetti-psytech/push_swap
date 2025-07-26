@@ -5,6 +5,7 @@
 # include <stdbool.h> //To use bool flags, e.g, to print or not to print
 # include <limits.h> //To define MIN and MAX macros	
 
+#include <unistd.h>
 #include <stdio.h> //-> remember to delete!
 
 /*typedef struct s_stack
@@ -54,5 +55,6 @@ char	**create_array(int ac, char **array_nb);
 //static int	get_min(x_stack **stack, int val);
 char *join_all(char *s1, char *s2);
 char	*ft_strdup(char *src);
+int check_digit(char *s);
 
 # endif
