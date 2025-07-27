@@ -59,3 +59,12 @@ void	swap(int *a, int *b)
 	*a = *b;
 	*b = tmp;
 }
+void ft_putchar(char *s)
+{
+	int	i;
+
+	i = -1;
+	while(s[++i])
+		write(1, &s[i], 1);
+	write(1, "\n", 1);
+}

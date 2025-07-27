@@ -56,8 +56,19 @@ static void	append_node(x_stack **stack, int n)
 		node->prev = last;
 	}
 }
+/*static void	free_stack(x_stack *stack_a)
+{
+	x_stack *tmp;
+	while (stack_a)
+	{
+		tmp = stack_a;
+		stack_a = stack_a->next;
+		free(tmp);
+	}
+	//exit(0);
+}*/
 
-void	init_a(x_stack **a, char **av)
+int	init_a(x_stack **a, char **av)
 {
 	int		i;
 	long	n;
@@ -66,13 +77,17 @@ void	init_a(x_stack **a, char **av)
 	while (av[i])
 	{
 		n = ft_atol(av[i]);
-		if (check_limit(n))
-			ft_putchar("No error in limits");
-		else
-			ft_putchar("Error");
+		if (!check_limit(n))
+			return 0;
+			/*{
+				ft_putchar("Error");
+				free_stack(*a);
+				return ;
+			}*/
 		append_node(a, (int)n);
 		i++;
 	}
+	return 1;
 }
 
 
@@ -108,6 +123,7 @@ void	init_a(x_stack **a, char **av)
 		return (ar);
 }*/
 
+ //versao 2
 char	**create_array(int ac, char **array_nb)
 {
 	char	**ar;
@@ -138,9 +154,56 @@ char	**create_array(int ac, char **array_nb)
 			i++;
 		}
 		if (!check_digit(joined_args))
-			{free(joined_args); return (0);}
+			{free(joined_args); return (NULL);}
 		ar = split(joined_args, ' ');
 		free(joined_args);
 	}
 	return (ar);
 }
+
+
+/*#include "../push_swap.h"
+
+char	**create_array(int ac, char **av)
+{
+	char	**ar;
+	char	*joined;
+	char	*temp;
+	int		i;
+
+	ar = NULL;
+	if (ac == 2)
+	{
+		if (!check_digit(av[1]))
+			return (NULL);
+		ar = split(av[1], ' ');
+	}
+	else if (ac > 2)
+	{
+		joined = ft_strdup(av[1]);
+		if (!joined)
+			return (NULL);
+		i = 2;
+		while (i < ac)
+		{
+			temp = join_all(joined, av[i]);
+			if (!temp)
+			{
+				free(joined);
+				return (NULL);
+			}
+			free(joined);
+			joined = temp;
+			i++;
+		}
+		if (!check_digit(joined))
+		{
+			free(joined);
+			return (NULL);
+		}
+		ar = split(joined, ' ');
+		free(joined);
+	}
+	return (ar);
+}
+*/

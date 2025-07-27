@@ -24,7 +24,7 @@ typedef struct s_stack {
 
 
 char	**split(char *s, char d);
-void init_a(x_stack **a, char **av);
+int  init_a(x_stack **a, char **av);
 x_stack *find_last(x_stack *stack);
 void add_index(x_stack *stack);
 long ft_atol(char *s);
@@ -56,5 +56,9 @@ char	**create_array(int ac, char **array_nb);
 char *join_all(char *s1, char *s2);
 char	*ft_strdup(char *src);
 int check_digit(char *s);
+void ft_putchar(char *s);
+int check_limit(long n);
+
+void	free_exit(char **arr, x_stack *a, x_stack *b, int err);
 
 # endif

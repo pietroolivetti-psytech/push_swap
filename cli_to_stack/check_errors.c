@@ -14,16 +14,6 @@
 
 // enquanto ainda sao strings: check_digit
 
-static void ft_putchar(char *s)
-{
-	int	i;
-
-	i = -1;
-	while(s[++i])
-		write(1, &s[i], 1);
-	write(1, "\n", 1);
-}
-
 int check_digit(char *s)
 {
 	int	i;
@@ -33,7 +23,7 @@ int check_digit(char *s)
 	{
 		if (!(s[i] >= '0' && s[i] <= '9') && s[i] != ' ')
 		{
-			ft_putchar("Error");
+			//ft_putchar("Error");
 			return (0);
 		}
 		i++;
@@ -42,5 +32,11 @@ int check_digit(char *s)
 }
 
 //durante a conversao: check_limit
+int check_limit(long n)
+{
+	if ((n > INT_MAX) || (n < INT_MIN))
+		return (0);
+	return (1);
+}
 
 //ja em linkedlist: check_duplicates

@@ -26,7 +26,7 @@ void	ra(x_stack **a)
 	last->next = tmp;
 	tmp->prev = last;
 	tmp->next = NULL;
-	printf("ra\n");
+	ft_putchar("ra");
 }
 
 void	rb(x_stack **b)
@@ -43,7 +43,7 @@ void	rb(x_stack **b)
 	last->next = tmp;
 	tmp->prev = last;
 	tmp->next = NULL;
-	printf("rb\n");
+	ft_putchar("rb");
 }
 
 void	rra(x_stack **a)
@@ -59,7 +59,7 @@ void	rra(x_stack **a)
 	(*a)->prev = last_to_first;
 	last_to_first->next = *a;
 	*a = last_to_first;
-	printf("rra\n");
+	ft_putchar("rra");
 }
 
 void	rrb(x_stack **b)
@@ -75,5 +75,5 @@ void	rrb(x_stack **b)
 	(*b)->prev = last_to_first;
 	last_to_first->next = *b;
 	*b = last_to_first;
-	printf("rrb\n");
+	ft_putchar("rrb");
 }

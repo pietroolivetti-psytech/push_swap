@@ -28,7 +28,7 @@ void	pb(x_stack **a, x_stack **b)
 		(*b)->prev = a_to_b;
 	a_to_b->prev = NULL;
 	*b = a_to_b;
-	printf("pb\n");
+	ft_putchar("pb");
 }
 
 void	pa(x_stack **a, x_stack **b)
@@ -47,7 +47,7 @@ void	pa(x_stack **a, x_stack **b)
 		(*a)->prev = b_to_a;
 	b_to_a->prev = NULL;
 	*a = b_to_a;
-	printf("pa\n");
+	ft_putchar("pa");
 }
 
 void	sa(x_stack **a)
@@ -56,7 +56,7 @@ void	sa(x_stack **a)
 		return ;
 	swap(&(*a)->nbr, &(*a)->next->nbr);
 	swap(&(*a)->index, &(*a)->next->index);
-	printf("sa\n");
+	ft_putchar("sa");
 }
 
 void	sb(x_stack **b)
@@ -65,5 +65,5 @@ void	sb(x_stack **b)
 		return ;
 	swap(&(*b)->nbr, &(*b)->next->nbr);
 	swap(&(*b)->index, &(*b)->next->index);
-	printf("sb\n");
+	ft_putchar("sb");
 }
