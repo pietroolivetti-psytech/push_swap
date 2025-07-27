@@ -6,3 +6,16 @@ DESKTOP-HMV2LP2% ARG="$(shuf -i 1-1000 -n 500 | tr '\n' ' ')"; ./push_swap $ARG 
 6784
 DESKTOP-HMV2LP2% ARG="$(shuf -i 1-1000 -n 100 | tr '\n' ' ')"; ./push_swap $ARG | wc -l
 1084
+
+valgrind detalhado: valgrind --leak-check=full --show-leak-kinds=all ./push_swap "args"
+
+Para checar erros:
+duplicado:
+INT_MAX: ./push_swap " 2 45 87 4 556 21474836471"
+INT_MIN
+Not digit: 
+
+
+transformar long em int ou receber long diretamente visto que é feito o controle de INT_MAX, INT_MIN?
+mudar os nomes ft_putchar para putstr
+revisar o exit 0 e 1 nas funções com free
