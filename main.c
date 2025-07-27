@@ -96,11 +96,20 @@ int main(int ac, char **av)
 			free_exit(parsed_array, a, b, 1);
 		total_n = stack_len(a);
 		sort_index(a);
-		while (1)
+		while (total_n > 4)//(1)
 		{
 			if (is_sorted(a, total_n))
 				free_exit(parsed_array, a, b, 0);//exit(1);
 			radix_sort(&a, &b);
+		}
+		while(total_n < 5)
+		{
+			if (is_sorted(a, total_n))
+				free_exit(parsed_array, a, b, 0);
+			if (total_n == 2)
+				sort_two(&a);
+			if (total_n == 3)
+				sort_three(&a);
 		}
 	}
 
