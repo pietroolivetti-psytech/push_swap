@@ -68,26 +68,24 @@ static void	append_node(x_stack **stack, int n)
 	//exit(0);
 }*/
 
+
 int	init_a(x_stack **a, char **av)
 {
 	int		i;
 	long	n;
-
+//add check to !a
 	i = 0;
 	while (av[i])
 	{
 		n = ft_atol(av[i]);
 		if (!check_limit(n))
-			return 0;
-			/*{
-				ft_putchar("Error");
-				free_stack(*a);
-				return ;
-			}*/
-		append_node(a, (int)n);
+			return (0);
+		append_node(a, n);
+		if (!check_duplicates(a, n))
+			return (0);
 		i++;
 	}
-	return 1;
+	return (1);
 }
 
 

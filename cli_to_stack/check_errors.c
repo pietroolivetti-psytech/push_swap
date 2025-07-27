@@ -21,11 +21,10 @@ int check_digit(char *s)
 	i = 0;
 	while (s[i])
 	{
-		if (!(s[i] >= '0' && s[i] <= '9') && s[i] != ' ')
-		{
-			//ft_putchar("Error");
+		if (!(s[i] >= '0' && s[i] <= '9') && s[i] != ' ' && s[i] != '-')
 			return (0);
-		}
+		if (s[i] == '-' && (!(s[i+1] >= '0' && s[i+1] <= '9')))
+			return (0);
 		i++;
 	}
 	return (1);
@@ -40,3 +39,17 @@ int check_limit(long n)
 }
 
 //ja em linkedlist: check_duplicates
+int check_duplicates(x_stack **a, long last_nbr)
+{
+	//x_stack *last = find_last(*a);
+	//int	last_nbr = last->nbr;
+	x_stack *cur = *a;
+
+	while (cur->next)
+	{
+		if (cur->nbr == last_nbr)
+			return (0);
+		cur = cur->next;
+	}
+	return (1);
+}

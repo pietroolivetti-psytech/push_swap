@@ -93,7 +93,6 @@ int main(int ac, char **av)
 		if (!parsed_array)
 			free_exit(parsed_array, a, b, 1); //exit(1);
 		if(!init_a(&a, parsed_array))
-		//if (!a)
 			free_exit(parsed_array, a, b, 1);
 		total_n = stack_len(a);
 		sort_index(a);

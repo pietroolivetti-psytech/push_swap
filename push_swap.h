@@ -60,5 +60,6 @@ void ft_putchar(char *s);
 int check_limit(long n);
 
 void	free_exit(char **arr, x_stack *a, x_stack *b, int err);
+int check_duplicates(x_stack **a, long last_nbr);
 
 # endif
