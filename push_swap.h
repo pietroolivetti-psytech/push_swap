@@ -64,5 +64,7 @@ int check_duplicates(x_stack **a, long last_nbr);
 
 void sort_two(x_stack **a);
 void sort_three(x_stack **a);
+void sort_four(x_stack **a, x_stack **b);
+void sort_five(x_stack **a, x_stack **b);
 
 # endif

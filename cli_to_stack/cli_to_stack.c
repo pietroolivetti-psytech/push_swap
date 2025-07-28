@@ -121,6 +121,28 @@ int	init_a(x_stack **a, char **av)
 		return (ar);
 }*/
 
+static int check_empty(char **array, int n)
+{
+	int	i;
+
+	i = 0;
+	if (n == 1)
+	{
+		if (array[0] || !array)
+			return (0);
+	}
+	if (n == 2)
+	{
+		while(array)
+		{
+			if (array[i][0] || !array[i])
+				return (0);
+			i++;
+		}
+	}
+	return (1);
+}
+
  //versao 2
 char	**create_array(int ac, char **array_nb)
 {
@@ -132,12 +154,16 @@ char	**create_array(int ac, char **array_nb)
 	ar = NULL;
 	if (ac == 2)
 		{
+			if (!check_empty(array_nb, 1))
+				return (0);
 			if (!check_digit(array_nb[1]))
 				return (0);
 			return (split(array_nb[1], ' '));
 		}
 	else if (ac > 2)
 	{
+		if (!check_empty(array_nb, 2))
+			return (0);
 		joined_args = ft_strdup(array_nb[1]);
 		if (!joined_args)
 			return (NULL);
